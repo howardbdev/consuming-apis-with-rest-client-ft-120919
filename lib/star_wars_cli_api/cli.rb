@@ -1,12 +1,12 @@
-class CLI
+class StarWarsCliApi::CLI
   def start
     system('clear') # clears terminal
 
     puts "Welcome to the Star Wars API!"
     puts "Loading Data..."
 
-    API.new.get_all_characters
-    
+    StarWarsCliApi::API.new.get_all_characters
+
     puts "Data loaded..."
     main_menu_options
   end
@@ -39,9 +39,9 @@ class CLI
 
   def sub_menu_input
     user_input = gets.strip
-    
-    if user_input.to_i.between?(1, Character.all.length)
-      character = Character.all[user_input.to_i - 1]
+
+    if user_input.to_i.between?(1, StarWarsCliApi::Character.all.length)
+      character = StarWarsCliApi::Character.all[user_input.to_i - 1]
       print_character_details(character)
       continue?
     elsif user_input.downcase == "exit"
@@ -53,7 +53,7 @@ class CLI
   end
 
   def list_characters
-    Character.all.each.with_index(1) do |character, i|
+    StarWarsCliApi::Character.all.each.with_index(1) do |character, i|
       puts "#{i}. #{character.name}"
     end
   end

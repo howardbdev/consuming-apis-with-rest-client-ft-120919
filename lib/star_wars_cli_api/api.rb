@@ -5,12 +5,12 @@
 # require_relative './character'
 
 # I know I want to get a bunch of info about SW characters...
-# I will use the info to make Character objects!! And "persist" them into a class variable...
+# I will use the info to make StarWarsCliApi::Character objects!! And "persist" them into a class variable...
 
 # getting the info...
 
 # this functionality should be wrapped into a class
-class API
+class StarWarsCliApi::API
   BASE_URL = "https://swapi.co/api/"
 
   # def get_all_characters
@@ -18,7 +18,7 @@ class API
   #   characters_array = JSON.parse(response.body)["results"]
 
   #   characters_array.each do |character|
-  #     Character.new(character)
+  #     StarWarsCliApi::Character.new(character)
   #   end
   # end
 
@@ -32,7 +32,7 @@ class API
     characters_array = JSON.parse(response.body)["results"]
 
     characters_array.each do |character|
-      Character.new(character)
+      StarWarsCliApi::Character.new(character)
     end
 
     # next_page = JSON.parse(response.body)["next"]
